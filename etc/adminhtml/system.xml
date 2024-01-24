@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="kadoco"
+        >
+            <label>Kadoco</label>
+        </tab>
+        <section id="snapchat"
+                 translate="label"
+                 type="text"
+                 sortOrder="500"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1"
+        >
+            <class>separator-top</class>
+            <label>Snapchat</label>
+            <tab>kadoco</tab>
+            <resource>Magento_Backend::admin</resource>
+            <group id="configuration"
+                   translate="label"
+                   type="text"
+                   sortOrder="20"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1"
+            >
+                <label>Snapchat configuration</label>
+
+                <field
+                    id="active"
+                    translate="label"
+                    type="select"
+                    sortOrder="20"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="pixelid"
+                       translate="label"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                >
+                    <label>Pixel id</label>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+
+                <field
+                    id="purchase"
+                    translate="label"
+                    type="select"
+                    sortOrder="50"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                    <label>Track purchases</label>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field
+                    id="cloudflare"
+                    translate="label"
+                    type="select"
+                    sortOrder="60"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                    <label>Cloudflare</label>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <comment>Set to yes if using cloudflare.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
